@@ -1,0 +1,11 @@
+2017-07-04 14:37:19,141 [Thread-2:9588] [addlog:29] [views:index] [ERROR]- [Errno 2] No such file or directory: u'xuwei.txt'
+2017-07-04 14:40:32,201 [Thread-2:2232] [addlog:29] [views:index] [ERROR]- [Errno 2] No such file or directory: u'xuwei.txt'
+2017-07-04 14:40:32,437 [Thread-2:2232] [addlog:39] [views:index] [INFO]- add xuwei sd
+2017-07-04 14:49:55,019 [Thread-2:10540] [addlog:35] [views:index] [INFO]- add xuwei得到 dd
+2017-07-04 15:40:21,796 [Thread-5:8736] [addlog:35] [views:index] [INFO]- add leve1 dd
+2017-07-04 15:40:54,885 [Thread-4:9716] [addlog:35] [views:index] [INFO]- add xuwei dd
+2017-07-04 15:44:26,614 [Thread-3:8688] [addlog:35] [views:index] [INFO]- add es_offline 对手放大
+2017-07-04 15:50:41,420 [Thread-3:3160] [addlog:35] [views:index] [INFO]- add es_offline chat_test
+2017-07-05 20:20:38,753 [Thread-2:10756] [addlog:35] [views:index] [INFO]- add es_offline chat_test
+2017-07-05 20:21:57,539 [Thread-3:11232] [addlog:36] [views:index] [INFO]- add es_offline chat_test
+2017-07-05 20:24:05,434 [Thread-3:9940] [addlog:36] [views:index] [INFO]- add es_offline chat_test

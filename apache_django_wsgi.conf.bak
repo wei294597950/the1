@@ -1,0 +1,12 @@
+  # ﻿ 
+  # 设置root，不要使用"^/"
+  WSGIScriptAlias / "C:/Users/roobo/test627/Scripts/test2/Scripts/the1/the1/wsgi.py"
+  WSGIPythonPath C:/Users/roobo/test627/Scripts/test2/Scripts/the1
+  <Directory "C:/Users/roobo/test627/Scripts/test2/Scripts/the1">
+    Order Deny,Allow
+    Allow from all
+  </Directory>
+  <Directory "C:/Users/roobo/test627/Scripts/test2/Scripts/the1">
+    Order Deny,Allow
+    Allow from all
+  </Directory>

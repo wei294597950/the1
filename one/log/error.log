@@ -1,0 +1,5 @@
+2017-07-04 12:47:25,266 [Thread-3:2980] [blog.views:29] [views:index] [ERROR]- [Errno 2] No such file or directory: u'xuwei.txt'
+2017-07-04 13:04:59,512 [Thread-3:532] [blog.views:29] [views:index] [ERROR]- [Errno 2] No such file or directory: u'xuwei.txt'
+2017-07-04 13:04:59,749 [Thread-3:532] [blog.views:39] [views:index] [ERROR]- add xuwei dd
+2017-07-04 14:37:19,141 [Thread-2:9588] [addlog:29] [views:index] [ERROR]- [Errno 2] No such file or directory: u'xuwei.txt'
+2017-07-04 14:40:32,201 [Thread-2:2232] [addlog:29] [views:index] [ERROR]- [Errno 2] No such file or directory: u'xuwei.txt'
