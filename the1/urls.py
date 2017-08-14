@@ -26,6 +26,8 @@ urlpatterns = [
 url(r'^form_edit/$', views.form_edit, name='form_edit'),
     url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'login.html'}),
 url(r'^logout/$',views.logout,name='logout'),
-    url(r'^django_ajax/', views.django_ajax ,name="django_ajax")
+    url(r'^django_ajax/', views.django_ajax ,name="django_ajax"),
+url(r'^upload_file/$', views.upload_file ,name="upload_file"),
+
 
 ]

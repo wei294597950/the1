@@ -3528,3 +3528,14 @@ MultiValueDictKeyError: "u'data2'"
 2017-08-05 14:14:39,375 [Thread-195:14560] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
 2017-08-05 14:14:58,664 [Thread-196:3948] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
 2017-08-05 14:29:05,844 [Thread-197:14348] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2017-08-09 15:00:28,872 [Thread-2:4184] [django.request:170] [base:get_response] [WARNING]- Not Found: /
+2017-08-09 15:00:28,979 [Thread-3:5248] [django.request:170] [base:get_response] [WARNING]- Not Found: /favicon.ico
+2017-08-09 15:00:56,602 [Thread-8:9504] [django.request:170] [base:get_response] [WARNING]- Not Found: /address/upload/
+2017-08-09 15:02:22,388 [Thread-2:16224] [django.request:170] [base:get_response] [WARNING]- Not Found: /address/upload/
+2017-08-09 15:02:22,434 [Thread-3:8880] [django.request:170] [base:get_response] [WARNING]- Not Found: /address/upload/
+2017-08-09 15:02:22,450 [Thread-4:6976] [django.request:170] [base:get_response] [WARNING]- Not Found: /address/upload/
+2017-08-09 15:02:22,460 [Thread-5:6868] [django.request:170] [base:get_response] [WARNING]- Not Found: /address/upload/
+2017-08-09 15:03:23,352 [Thread-3:4876] [django.request:98] [csrf:_reject] [WARNING]- Forbidden (CSRF token missing or incorrect.): /upload_file/
+2017-08-09 15:03:35,831 [Thread-5:10140] [django.request:98] [csrf:_reject] [WARNING]- Forbidden (CSRF token missing or incorrect.): /upload_file/
+2017-08-09 15:04:41,421 [Thread-3:8112] [django.request:98] [csrf:_reject] [WARNING]- Forbidden (CSRF token missing or incorrect.): /upload_file/
+2017-08-09 15:05:22,782 [Thread-5:2860] [django.request:98] [csrf:_reject] [WARNING]- Forbidden (CSRF token missing or incorrect.): /upload_file/

@@ -14,7 +14,7 @@ from django.template import RequestContext
 from time import ctime
 import urllib
 from .forms import addform
-from .forms import editform
+from .forms import *
 import time
 from django.contrib.messages import constants as messages
 from django.contrib import messages
@@ -247,4 +247,34 @@ def tools(request):
     #     return render(request,'tools.html',locals())
     return render(request, 'tools.html', locals())
 
+from django.http import HttpResponseRedirect
+from django.shortcuts import render_to_response
 
+import  os
+def upload_file(request):
+    if request.method == 'POST':
+        print "进来"
+        form = UploadFileForm(request.POST, request.FILES)
+        myFile =request.FILES.get("file", None)# 获取上传的文件，如果没有文件，则默认为None
+        print type(myFile)
+        for line in myFile:
+            print line
+        f = open(os.path.join('C:/Users/roobo/Desktop/es_tool/temp_data',myFile.name), 'wb')
+        for chunk in myFile.chunks(chunk_size=1024):
+            f.write(chunk)
+        print os.getcwd()
+        cluster = 'elasticsearch'
+        index = "chat_test2"
+        types = "chat"
+        name = "C:/Users/roobo/Desktop/es_tool/temp_data/yuliao.txt"
+        os.chdir('C:/Users/roobo/Desktop/es_tool/run_all/fmt_json')
+        print os.getcwd()
+        c = os.system('sh test_import2.sh' + cluster +' '+ index +' '+types +' '+ name)
+        print c
+        os.chdir('C:/Users/roobo/test627/Scripts/test2/Scripts/the1')
+        print os.getcwd()
+        if not myFile:
+            return HttpResponse("no files for upload!")
+    else:
+        form = UploadFileForm()
+    return render_to_response('upload.html', {'form': form})

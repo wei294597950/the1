@@ -57,3 +57,8 @@ class LoginForm(forms.Form):
             raise forms.ValidationError("用户名和密码为必填项")
         else:
             cleaned_data = super(LoginForm, self).clean()
+
+
+class UploadFileForm(forms.Form):
+    title = forms.CharField(max_length=50)
+    file = forms.FileField()
