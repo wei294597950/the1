@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <title></title>
-   <link href=" /static/css/bootstrap.min.css" rel="stylesheet">
-   <link href="/static/css/landing-page.css" rel="stylesheet">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title></title>
+    <link href=" /static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/landing-page.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="/static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
- <!--<link href=" /static/css/styles.css" rel="stylesheet">-->
-   <script src="/static/js/jquery.min.js"></script>
-   <script src="/static/js/bootstrap.min.js"></script>
-       <script src="/static/js/jquery.cookie.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet"
+          type="text/css">
+    <!--<link href=" /static/css/styles.css" rel="stylesheet">-->
+    <script src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/vue.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/jquery.cookie.js"></script>
     <script src="/static/js/index.js"></script>
 
-	<title>更新</title>
+    <title>更新</title>
 
-<script language="javascript" type="text/javascript">
+    <script language="javascript" type="text/javascript">
 var csrftoken = $.cookie('csrftoken');
 
 function csrfSafeMethod(method) {
@@ -154,160 +156,253 @@ alert("你正在刷新页面");
 }
 }
 
-</script>
+
+
+
+
+
+    </script>
 
 </head>
 
 <body onbeforeunload="checkLeave()">
 
 <nav class="navbar navbar-default" role="navigation">
-	<div class="container-fluid">
-	<div class="navbar-header">
-		<a class="navbar-brand" href="#">ES干预平台</a>
-	</div>
-	<div>
-		<ul class="nav navbar-nav">
-			<li ><a href="http://127.0.0.1:8000/index/">新增</a></li>
-			<li class="active"><a href="http://127.0.0.1:8000/listing">检索</a></li>
-        </ul>
-    </div>
-          <div id="header-navbar-collapse" class="navbar-collapse collapse navbar-right">
-                    <ul class="nav navbar-nav">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">ES干预平台</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li><a href="http://127.0.0.1:8000/index/">新增</a></li>
+                <li class="active"><a href="http://127.0.0.1:8000/listing">检索</a></li>
+            </ul>
+        </div>
+        <div id="header-navbar-collapse" class="navbar-collapse collapse navbar-right">
+            <ul class="nav navbar-nav">
 
-    <li class="dropdown">
+                <li class="dropdown">
 
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">欢迎， <strong>{{ request.user.username }}</strong> <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">欢迎， <strong>{{
+                        request.user.username }}</strong> <span class="caret"></span></a>
 
-                            <ul class="dropdown-menu">
+                    <ul class="dropdown-menu">
 
-                                <li><a href="/admin/password_change/">修改密码</a></li>
+                        <li><a href="/admin/password_change/">修改密码</a></li>
 
-                                <li><a href="/admin/logout/">注销</a></li>
-                            </ul>
-                        </li>
-                        <!--<li>-->
-                            <!--<a target="_parent" href="/logout/"><strong>注销</strong></a>-->
-                        <!--</li>-->
+                        <li><a href="/admin/logout/">注销</a></li>
                     </ul>
-	</div>
+                </li>
+                <!--<li>-->
+                <!--<a target="_parent" href="/logout/"><strong>注销</strong></a>-->
+                <!--</li>-->
+            </ul>
+        </div>
     </div>
 </nav>
 
 
 <!--<style>-->
-    <!--div{ display:inline-block;}-->
+<!--div{ display:inline-block;}-->
 <!--</style>-->
-<a type="button"  data-toggle="modal" data-target="#myModal">
-  Launch demo modal
+
+<a type="button" data-toggle="modal" data-target="#myModal">
+    Launch demo modal
 </a>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-          <h4>步骤一：仅支持上传txt，若源文件为excel，参考下图，另存为 “文本文件(制表符分割)“ 之后参考步骤二</h4>
-    <p>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                <h4>步骤一：仅支持上传txt，若源文件为excel，参考下图，另存为 “文本文件(制表符分割)“ 之后参考步骤二</h4>
+                <p>
 
-<img src="/static/exclealert.png" width="100%" height="50%">
-</p>
-          <h4>步骤二：若源文件为txt，请务必另存为 UTF-8 编码</h4>
-             <p>
-<img src="/static/txtalert.png" width="100%" height="50%">
-</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+                    <img src="/static/img/exclealert.png" width="100%" height="50%">
+                </p>
+                <h4>步骤二：若源文件为txt，请务必另存为 UTF-8 编码</h4>
+                <p>
+                    <img src="/static/img/txtalert.png" width="100%" height="50%">
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 <div>
-<form method='get' role="form">
+    <form method='get' role="form">
+
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="name">标签:</label>
+            {{ form.country }}
+        </div>
+        <div class="form-group">
+            <label for="name">标签:</label>
+            {{ form.country }}
+        </div>
+
+        <input type="submit" value="提交" class="btn btn-primary">
+
+    </form>
+</div>
+
+<div>
+    <form class="form-horizontal" method="post" id="defaultform">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">cluster：</label>
+            <div class="col-sm-10" id="test">
+                <select class="form-control" name="cluster" style="width:30%" v-model="selected">
+                    <option v-for="yx in YX" :value="yx.text" v-text="yx.text">
+                    </option>
+                </select>
+                <select class="form-control" style="width:30%">
+                    <option v-for="(zy,index) in selection" :value="zy.text" :selected="index == 0 ? true : false"
+                            v-text="zy.text">
+                    </option>
+                </select>
+            </div>
+        </div>
+        <script type="text/javascript">
+new Vue({
+  el: '#test',
+  data: {
+    selected: '计信院',
+    YX: [{
+      text: '计信院',
+      ZY: [{
+        text: '软件工程'
+      }, {
+        text: '计算机科学与技术'
+      }, {
+        text: "信息安全"
+      }, ]
+    }, {
+      text: '商学院',
+      ZY: [{
+        text: '旅游管理'
+      }, {
+        text: '工商管理'
+      }, {
+        text: "行政管理"
+      }, ]
+    }, ]
+  },
+  computed: {
+    selection: {
+      get: function() {
+        var that = this;
+        return this.YX.filter(function(item) {
+          return item.text == that.selected;
+        })[0].ZY;
+      }
+    }
+  }
+});
+
+        </script>
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">index：</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputEmail5" placeholder="index" name="index"
+                       style="width:30%">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">type：</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputEmail6" placeholder="types" name="types"
+                       style="width:30%">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">query</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputEmail7" placeholder="query" name="query"
+                       style="width:30%">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">answer</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputEmail8" placeholder="answer" name="answer"
+                       style="width:30%">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default" id="add">新增</button>
+            </div>
+        </div>
+    </form>
+</div>
 
 
-{% csrf_token %}
-    <div class="form-group">
-        <label for="name">标签:</label>
-{{ form.country }}
-    </div>
-      <div class="form-group">
-        <label for="name">标签:</label>
-{{ form.country }}
-    </div>
-
-
-<input type="submit" value="提交" class="btn btn-primary">
-
-</form></div>
-<div></div>
 <div style="inline-block">
-<form method='post' id="myForm" >
-<table>
-{% csrf_token %}
-{{ form.as_table }}
-
-<a target="_parent" href="/logout/">logout</a>
-<input type="submit" value="修改" class="btn btn-primary" id="xiugai">
-    <input type="submit" value="提交a" class="btn btn-primary" id="myForms">
-</table>
-</form></div>
+    <form method='post' id="myForm">
+        <table>
+            {% csrf_token %}
+            {{ form.as_table }}
+            <a target="_parent" href="/logout/">logout</a>
+            <input type="submit" value="修改" class="btn btn-primary" id="xiugai">
+            <input type="submit" value="提交a" class="btn btn-primary" id="myForms">
+        </table>
+    </form>
+</div>
 <table class="table table-striped" id="contactTable">
-  <thead>
-      <tr>
-         <th>姓名</th>
-         <th>年龄</th>
-		  <th>地址</th>
-          {{ request.user.username }}
-
-          {% if perms.one.新增 and perms.one.检索 %}
-          <th><input type="button" value="删除" id="delete"></th>
-
-          {% endif %}
-          {% if perms.one.新增 and perms.one.检索 and perms.one.修改 %}
-          <th><input   type="button" id="update" value="更新" ></th>
-          {% endif %}
-      </tr>
-   </thead>
-{% for contact in contacts %}
+    <thead>
+    <tr>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>地址</th>
+        {{ request.user.username }}
+        {% if perms.one.新增 and perms.one.检索 %}
+        <th><input type="button" value="删除" id="delete"></th>
+        {% endif %}
+        {% if perms.one.新增 and perms.one.检索 and perms.one.修改 %}
+        <th><input type="button" id="update" value="更新"></th>
+        {% endif %}
+    </tr>
+    </thead>
+    {% for contact in contacts %}
     <tbody>
     <tr>
-{% for i in contact %}
-
-
+        {% for i in contact %}
         <td>{{ i }}</td>
+        <!--<td >{{ contact.name }}</td>-->
+        <!--<td >{{ contact.age }}</td>-->
+        <!--<td >{{ contact.address }}</td>-->
 
-	<!--<td >{{ contact.name }}</td>-->
-	<!--<td >{{ contact.age }}</td>-->
-	<!--<td >{{ contact.address }}</td>-->
-
-
-
-          {% endfor %}           <td><input type="checkbox" name="test"></td>
+        {% endfor %}
+        <td><input type="checkbox" name="test"></td>
     </tr>
 
-      {% endfor %}
-   </tbody>
-</table>	
+    {% endfor %}
+    </tbody>
+</table>
 <!--<div class="pagination">-->
-    <!--<span class="step-links">-->
-        <!--{% if contacts.has_previous %}-->
-            <!--<a href="?page={{ contacts.previous_page_number }}">previous</a>-->
-        <!--{% endif %}-->
- <!---->
-        <!--<span class="current">-->
-            <!--Page {{ contacts.number | safe }} of {{ contacts.paginator.num_pages }}.-->
-        <!--</span>-->
- <!---->
-        <!--{% if contacts.has_next %}-->
-            <!--<a href="?page={{ contacts.next_page_number }}">next</a>-->
-        <!--{% endif %}-->
-    <!--</span>-->
+<!--<span class="step-links">-->
+<!--{% if contacts.has_previous %}-->
+<!--<a href="?page={{ contacts.previous_page_number }}">previous</a>-->
+<!--{% endif %}-->
+<!---->
+<!--<span class="current">-->
+<!--Page {{ contacts.number | safe }} of {{ contacts.paginator.num_pages }}.-->
+<!--</span>-->
+<!---->
+<!--{% if contacts.has_next %}-->
+<!--<a href="?page={{ contacts.next_page_number }}">next</a>-->
+<!--{% endif %}-->
+<!--</span>-->
 <!--</div>-->
 
 <nav aria-label="Page navigation">
@@ -315,21 +410,21 @@ alert("你正在刷新页面");
 
         {% if contacts.has_previous %}
         <li>
-        <a href="?page={{ contacts.previous_page_number }}" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-        </a>
+            <a href="?page={{ contacts.previous_page_number }}" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
         </li>
         {% endif %}
 
         {% for pg in contacts.paginator.page_range %}
         {% if contacts.number == pg %}
-        <li class="active"><a href="#" >{{ pg }}</a> </li>
+        <li class="active"><a href="#">{{ pg }}</a></li>
         {% else %}
-        <li><a href="?page={{ pg }}">{{ pg }}</a> </li>
+        <li><a href="?page={{ pg }}">{{ pg }}</a></li>
         {% endif %}
         {% endfor %}
 
-          {% if contacts.has_next %}
+        {% if contacts.has_next %}
         <li>
             <a href="?page={{ contacts.next_page_number }}" aria-label="Next">
                 <span aria-hidden="true">&raquo;</span>
