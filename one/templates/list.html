@@ -164,6 +164,7 @@ alert("你正在刷新页面");
 
 
 
+
     </script>
 
 </head>
@@ -186,8 +187,8 @@ alert("你正在刷新页面");
 
                 <li class="dropdown">
 
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">欢迎， <strong>{{
-                        request.user.username }}</strong> <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">欢迎， <strong>
+                        {{ request.user.username }}</strong> <span class="caret"></span></a>
 
                     <ul class="dropdown-menu">
 
@@ -314,6 +315,7 @@ new Vue({
 
 
 
+
         </script>
         <div id="divContent">
             <form class="form-horizontal" method="post">
@@ -359,22 +361,22 @@ new Vue({
                 selOneVal: [],
                 selTwoVal: [],
                 selThreeVal: [],
-                OneData: '国家',
-                TwoData: '省级',
-                ThreeData: '市区'
+                OneData: '集群',
+                TwoData: '索引',
+                ThreeData: '类型'
 
             }, methods: {
                 OneChange: function () {
                     vm.selOneVal = [];
-                    // this.selOneVal = [{ value: '-1', text: '国家' }];
+
                     this.selOneVal.push(
-                        { value: '国家', text: '国家' },
-                        { value: '1', text: '中国' },
-                        { value: '2', text: '法国' },
-                        { value: '3', text: '德国' }
+                        { value: '集群', text: '集群' },
+                        { value: '1', text: 'es_offline' },
+                        { value: '2', text: 'es_online' },
+                        //{ value: '3', text: '德国' }
                     )
-                    this.selTwoVal.push({ value: '省级', text: '省级' })
-                    this.selThreeVal.push({ value: '市区', text: '市区' })
+                    this.selTwoVal.push({ value: '索引', text: '索引' })
+                    this.selThreeVal.push({ value: '类型', text: '类型' })
                 }
             }
                , watch: {
@@ -382,36 +384,49 @@ new Vue({
                        vm.selTwoVal = [];
                        vm.selThreeVal = [];
 
-                       this.selTwoVal.push({ value: '省级', text: '省级' })
-                       this.selThreeVal.push({ value: '市区', text: '市区' })
+                       this.selTwoVal.push({ value: '索引', text: '索引' })
+                       this.selThreeVal.push({ value: '类型', text: '类型' })
 
                        var s1 = vm.OneData;
                        if (s1 == 1) {
                            this.selTwoVal.push(
-                       { value: '1', text: '湖南' },
-                       { value: '2', text: '湖北' },
-                       { value: '3', text: '上海' })
+                       { value: '1', text: 'chat_pudding_1' },
+                       { value: '2', text: 'chat_op_comon_1' },
+                       { value: '3', text: 'chat_norm_1' },
+                       { value: '4', text: 'chat_kg_1' },
+                       { value: '5', text: 'chat_high_1' },
+                       { value: '6', text: 'chat_op_1' })
 
                        } else if (s1 == 2) {
                            this.selTwoVal.push(
-                    { value: '4', text: 'Paris' },
-                    { value: '5', text: 'Nanc' },
-                    { value: '6', text: 'Rouen' })
-                       } else if (s1 == 3) {
-                           this.selTwoVal.push(
-                    { value: '7', text: 'Berlin' },
-                    { value: '8', text: 'Hamburg' },
-                    { value: '9', text: 'Munich' })
+                       { value: '1', text: 'chat_pudding_1' },
+                       { value: '2', text: 'chat_op_common_1' },
+                       { value: '3', text: 'chat_norm_1' },
+                       { value: '4', text: 'chat_kg_1' },
+                       { value: '5', text: 'chat_high_1' },
+                       { value: '6', text: 'chat_op_1' })
                        }
-                       vm.TwoData = '省级';
-                       vm.ThreeData = '市区';
+                       //else if (s1 == 3) {
+                           //this.selTwoVal.push(
+                   // { value: '7', text: 'Berlin' },
+                   // { value: '8', text: 'Hamburg' },
+                   // { value: '9', text: 'Munich' })
+                   //    }
+                       vm.TwoData = '索引';
+                       vm.ThreeData = '类型';
                    },
                    TwoData: function () {
-                       //vm.selThreeVal = [{ value: '-1', text: '市区' }];
+                       //vm.selThreeVal = [{ value: '-1', text: '类型' }];
                        var s2 = vm.TwoData;
                        vm.selThreeVal = [];
-                       this.selThreeVal.push({ value: '市区', text: '市区' })
-                       if (s2 == 1) {
+                       this.selThreeVal.push({ value: '类型', text: '类型' })
+                       if (s2 >= 1){
+                        this.selThreeVal.push(
+                       { value: '1', text: 'chat' },
+                      )
+                       }
+
+                      /* if (s2 == 1) {
                            this.selThreeVal.push(
                        { value: '1', text: '邵阳' },
                        { value: '2', text: '长沙' },
@@ -426,11 +441,12 @@ new Vue({
                     { value: '7', text: '浦东新区' },
                     { value: '8', text: '徐汇区' },
                     { value: '9', text: '静安区' })
-                       }
-                       vm.ThreeData = '市区';
+                       }*/
+                       vm.ThreeData = '类型';
                    },
                }
         })
+
 
 
 
