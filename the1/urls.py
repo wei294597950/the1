@@ -16,18 +16,19 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from one import views
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^index/$',views.index,name='index'),
-    url(r'^che/', views.che ,name="che"),
+    url(r'^index/$', views.index, name='index'),
+    url(r'^che/', views.che, name="che"),
     # url(r'^test3/', views.test3 ,name="test3"),
     url(r'^listing/$', views.listing, name='listing'),
     url(r'^tools/$', views.tools, name='tools'),
-url(r'^form_edit/$', views.form_edit, name='form_edit'),
+    url(r'^form_edit/$', views.form_edit, name='form_edit'),
     url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'login.html'}),
-url(r'^logout/$',views.logout,name='logout'),
-    url(r'^django_ajax/', views.django_ajax ,name="django_ajax"),
-url(r'^upload_file/$', views.upload_file ,name="upload_file"),
-
+    url(r'^logout/$', views.logout, name='logout'),
+    url(r'^django_ajax/', views.django_ajax, name="django_ajax"),
+    url(r'^upload_file/$', views.upload_file, name="upload_file"),
+    url(r'^soft_filter/$', views.soft_filter, name='soft_filter'),
 
 ]

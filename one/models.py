@@ -57,3 +57,68 @@ class the_log(models.Model):
     user = models.CharField(max_length=50)
     result = models.IntegerField()
     datetime = models.DateTimeField()
+
+class DecodeBase(models.Model):
+    word = models.CharField(max_length=128)
+    tag = models.CharField(max_length=128)
+
+    class Meta:
+            db_table = 'decode_base'
+            unique_together = (('word', 'tag'),)
+
+
+class ProductionIntervene(models.Model):
+    production_id = models.IntegerField()
+    word = models.CharField(max_length=128)
+    tag = models.CharField(max_length=128)
+    opertion_id = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        db_table = 'production_intervene'
+        unique_together = (('production_id', 'word', 'tag'),)
+
+
+class ProductionDesc(models.Model):
+    production_id = models.IntegerField(primary_key=True)
+    production_name = models.CharField(unique=True, max_length=128, blank=True, null=True)
+
+    class Meta:
+        db_table = 'production_desc'
+
+
+class DecodeAll(models.Model):
+    word = models.CharField(max_length=128)
+    tag = models.CharField(max_length=128)
+
+    class Meta:
+        db_table = 'decode_all'
+        unique_together = (('word', 'tag'),)
+
+
+class ProductionDiff(models.Model):
+    user_id = models.CharField(max_length=128, blank=True, null=True)
+    production_id = models.IntegerField()
+    word = models.CharField(max_length=128)
+    tag = models.CharField(max_length=128)
+    opertion_id = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        db_table = 'production_diff'
+        unique_together = (('production_id', 'word', 'tag'),)
+
+class Tmp(models.Model):
+    production_id = models.IntegerField()
+    word = models.CharField(max_length=128)
+    tag = models.CharField(max_length=128)
+    opertion_id = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        db_table = 'tmp'
+        unique_together = (('production_id', 'word', 'tag'),)
+
+
+class VersionBase(models.Model):
+    version = models.BigIntegerField(blank=True, null=True)
+
+    class Meta:
+        db_table = 'version_base'

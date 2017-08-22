@@ -130,31 +130,41 @@ function nums(){
 });
             });
 
+    $(function(){
+     $("#flush").click(function () {
 
+        checkLeave();
+
+    });
+	});
 function  checkLeave()
 {
 var one =2;
 event.returnValue = "确定？";
       $.ajax({
+      type:"POST",
     url:"/listing/",
     data:{"data2": one},
     <!--async:true,-->
-    dataType:"json",
-    type:"GET",
+    dataType:"html",
+
     success:function(data){
-        alert("hehe");
-        window.location.href="https://www.baidu.com"
+        $('#flushDIV').html(data)
+        //window.location.href="https://www.baidu.com"
     }
 });
 }
-window.onbeforeunload=function (){
-alert("===onbeforeunload===");
-if(event.clientX>document.body.clientWidth && event.clientY < 0 || event.altKey){
-alert("你关闭了浏览器");
-}else{
-alert("你正在刷新页面");
-}
-}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -169,7 +179,7 @@ alert("你正在刷新页面");
 
 </head>
 
-<body onbeforeunload="checkLeave()">
+<body>
 
 <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
@@ -316,6 +326,16 @@ new Vue({
 
 
 
+
+
+
+
+
+
+
+
+
+
         </script>
         <div id="divContent">
             <form class="form-horizontal" method="post">
@@ -324,7 +344,7 @@ new Vue({
                     <div class="col-sm-10">
                         <select v-model="OneData" class="form-control" name="cluster" style="width:30%">
                             <template v-for="item in selOneVal">
-                                <option :value="item.text" >${item.text}</option>
+                                <option :value="item.text">${item.text}</option>
                             </template>
                         </select>
                     </div>
@@ -333,7 +353,7 @@ new Vue({
                     <div class="col-sm-10">
                         <select v-model="TwoData" class="form-control" name="cluster" style="width:30%">
                             <template v-for="item in selTwoVal">
-                                <option :value="item.text" >${item.text}</option>
+                                <option :value="item.text">${item.text}</option>
                             </template>
                         </select>
                     </div>
@@ -342,7 +362,7 @@ new Vue({
                     <div class="col-sm-10">
                         <select v-model="ThreeData" class="form-control" name="cluster" style="width:30%">
                             <template v-for="item in selThreeVal">
-                                <option :value="item.text" >${item.text}</option>
+                                <option :value="item.text">${item.text}</option>
                             </template>
                         </select>
                     </div>
@@ -447,6 +467,16 @@ new Vue({
                },
                delimiters:['${','}']
         })
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -575,5 +605,10 @@ new Vue({
         {% endif %}
     </ul>
 </nav>
+<input type="submit" value="修改" class="btn btn-primary" id="flush">
+<div id="flushDIV">
+    {{ data }}
+</div>
 </body>
 </html>
+

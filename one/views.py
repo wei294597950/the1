@@ -278,3 +278,136 @@ def upload_file(request):
     else:
         form = UploadFileForm()
     return render_to_response('upload.html', {'form': form})
+
+def comments_upload(request):
+    if request.method == 'POST':
+        contacts = data_table.objects.all()
+        print "it's a test"  # 用于测试
+        print request.POST['name']  # 测试是否能够接收到前端发来的name字段
+        print request.POST['password']  # 用途同上
+        data = "heeh"
+        #return HttpResponse("表单测试成功")  # 最后返会给前端的数据，如果能在前端弹出框中显示我们就成功了
+        return HttpResponse(contacts)
+    else:
+        #contacts = data_table.objects.all()
+        return render(request,'test.html',locals())
+
+def soft_submit(request):
+    if request.is_ajax():
+        id=request.POST.get('type_id')
+    return HttpResponse("success")
+
+
+def soft_filter(request):
+    ajax_release_version=[]
+    release_version=[]
+    decode_data = DecodeBase.objects.all()
+    paginator = Paginator(decode_data, 11)
+    npage = int(request.GET.get('page', '1'))
+    try:
+        contactss = paginator.page(npage)
+    except PageNotAnInteger:
+        contactss = paginator.page(1)
+    except EmptyPage:
+        contactss = paginator.page(paginator.num_pages)
+    pros = ProductionIntervene.objects.all().order_by('production_id')
+    word =  request.POST.get('word')
+    tag =  request.POST.get('tag')
+    thenum = [1,2,3,4,5]
+    for i in request.POST.getlist('chk_value[]'):
+        if int(i) == 0 :
+            if request.POST.get('operation') == "add":
+                try:
+                    ProductionIntervene.objects.filter(word__contains=word, production_id=0, tag__contains=tag,
+                                                       opertion_id=2).delete()
+                except:
+                    pass
+                try:
+                    ProductionIntervene.objects.create(word=word, production_id=0, tag=tag, opertion_id=1)
+                except:
+                    pass
+                for tn in thenum:
+                    try:
+                        ProductionIntervene.objects.filter(word__contains=word, production_id=tn, tag__contains=tag,
+                                                       opertion_id=2).delete()
+                    except:
+                        pass
+                    try:
+                        ProductionIntervene.objects.filter(word=word,production_id=tn,tag=tag,opertion_id=1).delete()
+                    except:
+                        pass
+            elif request.POST.get('operation') == "delete":
+                try:
+                    ProductionIntervene.objects.filter(word__contains=word, production_id=0, tag__contains=tag,
+                                                       opertion_id=1).delete()
+                except:
+                    pass
+                try:
+                    ProductionIntervene.objects.create(word=word, production_id=0, tag=tag, opertion_id=2)
+                except:
+                    pass
+                for tn in thenum:
+                    try:
+                        ProductionIntervene.objects.filter(word__contains=word, production_id=tn, tag__contains=tag,
+                                                       opertion_id=1).delete()
+                    except:
+                        pass
+                    try:
+                        ProductionIntervene.objects.filter(word=word,production_id=tn,tag=tag,opertion_id=2).delete()
+                    except:
+                        pass
+        if  request.POST.get('operation') == "add":
+            try:
+                ProductionIntervene.objects.filter(word__contains=word,production_id=0,tag__contains=tag).delete()
+            except:
+                pass
+            try:
+                ProductionIntervene.objects.filter(word__contains=word,production_id=i,tag__contains=tag,opertion_id=2).delete()
+            except:
+                pass
+            try:
+                ProductionIntervene.objects.create(word=word,production_id=i,tag=tag,opertion_id=1)
+            except:
+                pass
+        elif request.POST.get('operation') == "delete":
+            try:
+                ProductionIntervene.objects.filter(word__contains=word,production_id=0,tag__contains=tag).delete()
+            except:
+                pass
+            try:
+                ProductionIntervene.objects.filter(word__contains=word,production_id=i,tag__contains=tag,opertion_id=1).delete()
+            except:
+                pass
+            try:
+                ProductionIntervene.objects.create(word=word,production_id=i,tag=tag,opertion_id=2)
+            except:
+                pass
+    if request.method == 'POST':
+        try:
+            num = request.POST.get('name')
+            answer = request.POST.get('password')
+            print num,answer
+            filter_data=DecodeBase.objects.filter(word__contains = num,tag__contains=answer)
+            #geshu = DecodeBase.objects.filter(word__contains = num,tag__contains=answer).count()
+        except:
+            print "意外"
+            filter_data = DecodeBase.objects.all()
+
+        for i in filter_data:
+            release_json = {}
+            release_json["word"]=i.word
+            release_json["tag"]=i.tag
+            ajax_release_version.append(release_json)
+        return HttpResponse(json.dumps(ajax_release_version), content_type='application/json')
+    else:
+        contact_list = DecodeBase.objects.all()
+        geshu = DecodeBase.objects.all().count()
+        paginator = Paginator(contact_list, 7)
+        page = int(request.GET.get('page', '1'))
+        try:
+            contacts = paginator.page(page)
+        except PageNotAnInteger:
+            contacts = paginator.page(1)
+        except EmptyPage:
+            contacts = paginator.page(paginator.num_pages)
+        return render(request,'test.html',locals())
