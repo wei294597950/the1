@@ -74,7 +74,7 @@ $.ajax( {
 
  $(function(){
 	$(".add").click(function(){
-                    var word= $.trim($(this).closest("tr").find("td:eq(0)").text());
+            var word= $.trim($(this).closest("tr").find("td:eq(0)").text());
 		    var  tag =  $.trim($(this).closest("tr").find("td:eq(1)").text());
 		    var chk_value =[];
 		    $('input[name="test"]:checked').each(function(){
